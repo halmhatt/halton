@@ -1,12 +1,18 @@
+/**
+ * A module that generate Halton sequences of low discrepancy numbers
+ * @author Jacob Carlsson
+ */
 
 /**
  * Main function, creates a number for index with base
  * between [0, 1]
+ *
+ * @namespace
  * @param  {Number} index Index to return number for, > 0
  * @param  {Number} base  The base to use
  * @return {Number}       The halton number for the index
  */
-module.exports = function(index, base) {
+function halton(index, base) {
 	'use strict';
 
 	var result = 0,
@@ -27,7 +33,7 @@ module.exports = function(index, base) {
  * @param  {...Number} base Bases to use for halton sequence
  * @return {Function}      Function whith bound bases
  */
-module.exports.base = function(base) {
+halton.base = function(base) {
 	'use strict';
 
 	var bases = Array.prototype.slice.call(arguments);
@@ -52,7 +58,7 @@ module.exports.base = function(base) {
  * @param  {Number} [startIndex=0] Start Index
  * @return {Function}              Function that increments index for each call
  */
-module.exports.increment = function(fn, startIndex) {
+halton.increment = function(fn, startIndex) {
 	'use strict';
 
 	var index = startIndex || 0;
@@ -63,12 +69,12 @@ module.exports.increment = function(fn, startIndex) {
 };
 
 /**
- * [generate description]
- * @param  {Function} fn     [description]
- * @param  {[type]}   length [description]
- * @return {[type]}          [description]
+ * Generate a sequence of numbers
+ * @param  {Function} fn     The function to use for generating sequences
+ * @param  {Number}   length Length of sequence
+ * @return {Number[]}              Sequence of numbers
  */
-module.exports.generate = function(fn, length) {
+halton.generate = function(fn, length) {
 	'use strict';
 
 	var result = [],
@@ -81,3 +87,5 @@ module.exports.generate = function(fn, length) {
 
 	return result;
 };
+
+exports = module.exports = halton;
