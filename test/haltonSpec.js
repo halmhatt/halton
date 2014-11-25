@@ -59,5 +59,42 @@ describe('halton', function() {
 			var fn = halton.base(8);
 			expect(fn(0)).to.equal(1 / 8);
 		});
+
+		it('should should be possible to bind more than one base', function() {
+			var fn = halton.base(2, 3);
+			expect(fn(0)).to.eql([1 / 2, 1 / 3], 'binding base 2 and 3 should work');
+		});
+	});
+
+	describe('halton.increment()', function() {
+		it('should increment correctly', function() {
+			var fn = halton.base(2),
+				inc = halton.increment(fn),
+				values = [];
+
+				values.push(inc());
+				values.push(inc());
+				values.push(inc());
+
+			expect(values).to.eql([
+				1 / 2,
+				1 / 4,
+				3 / 4
+			]);
+		});
+	});
+
+	describe('halton.generate()', function() {
+		it('should generate sequences', function() {
+			var fn = halton.base(2),
+				seq = halton.generate(fn, 3);
+
+			expect(seq.length).to.equal(3);
+			expect(seq).to.eql([
+				1 / 2,
+				1 / 4,
+				3 / 4
+			]);
+		});
 	});
 });
