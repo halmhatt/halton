@@ -26,7 +26,7 @@ function halton(index, base) {
 	}
 
 	return result;
-};
+}
 
 /**
  * Create a function that binds the base/bases

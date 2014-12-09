@@ -4,7 +4,12 @@
   "description": "The halton sequence of low discrepancy numbers",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "pretest": "npm run jshint && npm run jscs",
+
+    "jshint": "jshint halton.js",
+    "jscs": "jscs halton.js",
+    "coverage": "mocha --reporter mocha-istanbul"
   },
   "keywords": [
     "sequence",
