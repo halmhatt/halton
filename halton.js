@@ -1,4 +1,6 @@
 (function () {
+	'use strict';
+
 	/**
 	 * A module that generate Halton sequences of low discrepancy numbers
 	 * @author Jacob Carlsson
@@ -14,8 +16,6 @@
 	 * @return {Number}       The halton number for the index
 	 */
 	function halton(index, base) {
-		'use strict';
-
 		var result = 0,
 			frac = 1 / base,
 			i = index + 1;
@@ -35,8 +35,6 @@
 	 * @return {Function}      Function whith bound bases
 	 */
 	halton.base = function(base) {
-		'use strict';
-
 		var bases = Array.prototype.slice.call(arguments);
 
 		if(bases.length === 1) {
@@ -60,8 +58,6 @@
 	 * @return {Function}              Function that increments index for each call
 	 */
 	halton.increment = function(fn, startIndex) {
-		'use strict';
-
 		var index = startIndex || 0;
 
 		return function() {
@@ -76,8 +72,6 @@
 	 * @return {Number[]}              Sequence of numbers
 	 */
 	halton.generate = function(fn, length) {
-		'use strict';
-
 		var result = [],
 			inc = module.exports.increment(fn),
 			index = 0;
