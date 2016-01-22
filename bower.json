@@ -1,0 +1,23 @@
+{
+  "name": "halton",
+  "description": "The halton sequence of low discrepancy numbers",
+  "main": "halton.js",
+  "authors": [
+    "Jacob Carlsson"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "halton",
+    "random",
+    "sequence"
+  ],
+  "homepage": "https://github.com/halmhatt/halton",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
