@@ -1,12 +1,11 @@
 {
   "name": "halton",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The halton sequence of low discrepancy numbers",
   "main": "index.js",
   "scripts": {
     "test": "mocha",
     "pretest": "npm run jshint && npm run jscs",
-
     "jshint": "jshint halton.js",
     "jscs": "jscs halton.js",
     "coverage": "mocha --reporter mocha-istanbul"
